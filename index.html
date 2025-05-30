@@ -11,6 +11,7 @@
 </head>
 <body>
   <link rel="stylesheet" href="/css/thrill-header.css" />
+  <link rel="stylesheet" href="/css/services-section.css" />
   <header class="thrill-header">
     <div class="thrill-header__container">
       <a href="/index.html" class="thrill-logo" aria-label="THRILL Home">
@@ -89,28 +90,80 @@
 
 
             <div class="content-wrapper">
-                <div class="logo-container">
-                    <img src="images/thrillfil-logo.svg" alt="THRILLFIL Logo" class="logo">
-                </div>
                 <h1 class="headline">EVERYTHING CAN BE THRILLING</h1>
                 <p class="subheadline">Australia & New Zealand</p>
                 <a href="contact.html" class="cta-button get-in-touch-btn">Get in touch</a>
             </div>
         </section>
 
-        <!-- Horizontal Services Showcase -->
-        <section id="horizontal-services" class="section">
-            <div class="services-header">
-                <h2>Our Services</h2>
-                <p>Discover how we can help your brand thrive in the ANZ market</p>
+        <!-- Services Grid Section -->
+        <section id="services" class="services-section">
+            <div class="services-container">
+                <div class="section-header">
+                    <h2>Our Solutions</h2>
+                    <p>Comprehensive commerce solutions to grow your brand in the ANZ market and beyond</p>
+                </div>
+                
+                <div class="services-grid">
+                    <!-- THRILL Commerce -->
+                    <div class="service-card commerce">
+                        <div class="service-media">
+                            <!-- Replace with your actual image/video -->
+                            <img src="images/commerce-thumbnail.jpg" alt="THRILL Commerce">
+                        </div>
+                        <div class="service-content">
+                            <h3>THRILL Commerce</h3>
+                            <p>End-to-end eCommerce solutions that drive growth and customer engagement. From marketplace integration to conversion optimization, we've got you covered.</p>
+                            <a href="#" class="service-link">
+                                Explore Commerce
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- THRILL Fulfil -->
+                    <div class="service-card fulfil">
+                        <div class="service-media">
+                            <!-- Replace with your actual image/video -->
+                            <img src="images/fulfil-thumbnail.jpg" alt="THRILL Fulfil">
+                        </div>
+                        <div class="service-content">
+                            <h3>THRILL Fulfil</h3>
+                            <p>Seamless order fulfillment and logistics solutions. Our network ensures fast, reliable delivery and exceptional customer experiences across ANZ.</p>
+                            <a href="#" class="service-link">
+                                Discover Fulfilment
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- THRILL Create -->
+                    <div class="service-card create">
+                        <div class="service-media">
+                            <!-- Replace with your actual image/video -->
+                            <img src="images/create-thumbnail.jpg" alt="THRILL Create">
+                        </div>
+                        <div class="service-content">
+                            <h3>THRILL Create</h3>
+                            <p>Creative solutions that tell your brand's story. From content creation to campaign management, we help you connect with your audience.</p>
+                            <a href="#" class="service-link">
+                                View Our Work
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="horizontal-scroll-progress">
-                <div class="progress-bar"></div>
-            </div>
-            
-            <div class="horizontal-scroll-wrapper">
-                <div class="horizontal-content">
+        </section>
                     <!-- Service Panel 1 -->
                     <div class="service-panel">
                         <div class="panel-content">
@@ -424,6 +477,6 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
 <script src="/js/main.js"></script>
 <script src="js/nav.js"></script>
-<script src="js/contact.js"></script>
+<script src="/js/services-animation.js"></script>
 </body>
 </html>
