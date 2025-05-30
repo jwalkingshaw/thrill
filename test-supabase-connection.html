@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supabase Connection Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+    pre { background: #f5f5f5; padding: 10px; border-radius: 5px; overflow: auto; }
+    .error { color: red; }
+    .success { color: green; }
+    button { padding: 8px 16px; margin: 10px 0; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Supabase Connection Test</h1>
+  
+  <div>
+    <h2>Connection Status</h2>
+    <div id="connection-status">Testing connection...</div>
+    
+    <h2>Available Tables</h2>
+    <div id="tables-list">Loading tables...</div>
+    
+    <h2>News Table Structure</h2>
+    <div id="table-structure">Loading structure...</div>
+    
+    <h2>News Table Data</h2>
+    <div id="table-data">Loading data...</div>
+    
+    <button id="refresh-btn">Refresh Data</button>
+  </div>
+
+  <script>
+    // Supabase client setup
+    const SUPABASE_URL = "https://kgdqqpskaetkrirrxugd.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtnZHFxcHNrYWV0a3JpcnJ4dWdkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc4NzUyMDcsImV4cCI6MjA2MzQ1MTIwN30.828PSrhZs5mhQC1U7NyLTv5_Q2Ab3Fvnknq6K-rD8qk";
+
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    
+    async function testConnection() {
+      try {
+        // Test a simple query to check connection
+        const { data, error } = await supabase.from('news').select('count').limit(1);
+        
+        if (error) {
+          document.getElementById('connection-status').innerHTML = `
+            <div class="error">
+              <p>❌ Connection failed</p>
+              <pre>${JSON.stringify(error, null, 2)}</pre>
+            </div>
+          `;
+        } else {
+          document.getElementById('connection-status').innerHTML = `
+            <div class="success">
+              <p>✅ Connection successful</p>
+            </div>
+          `;
+        }
+      } catch (err) {
+        document.getElementById('connection-status').innerHTML = `
+          <div class="error">
+            <p>❌ Connection error</p>
+            <pre>${err.message}</pre>
+          </div>
+        `;
+      }
+    }
+    
+    async function listTables() {
+      try {
+        // This is a way to list tables in Supabase
+        const { data, error } = await supabase
+          .rpc('get_tables')
+          .select('*');
+        
+        if (error) {
+          document.getElementById('tables-list').innerHTML = `
+            <div class="error">
+              <p>❌ Error fetching tables</p>
+              <pre>${JSON.stringify(error, null, 2)}</pre>
+            </div>
+          `;
+        } else if (data && data.length > 0) {
+          document.getElementById('tables-list').innerHTML = `
+            <div class="success">
+              <p>✅ Tables found</p>
+              <pre>${JSON.stringify(data, null, 2)}</pre>
+            </div>
+          `;
+        } else {
+          // Alternative approach - try to query a specific table
+          const { data: newsData, error: newsError } = await supabase
+            .from('news')
+            .select('count')
+            .limit(1);
+            
+          if (newsError) {
+            document.getElementById('tables-list').innerHTML = `
+              <div class="error">
+                <p>❌ 'news' table not accessible</p>
+                <pre>${JSON.stringify(newsError, null, 2)}</pre>
+              </div>
+            `;
+          } else {
+            document.getElementById('tables-list').innerHTML = `
+              <div class="success">
+                <p>✅ 'news' table is accessible</p>
+              </div>
+            `;
+          }
+        }
+      } catch (err) {
+        document.getElementById('tables-list').innerHTML = `
+          <div class="error">
+            <p>❌ Error listing tables</p>
+            <pre>${err.message}</pre>
+          </div>
+        `;
+      }
+    }
+    
+    async function checkTableStructure() {
+      try {
+        // Query to get the first row to examine structure
+        const { data, error } = await supabase
+          .from('news')
+          .select('*')
+          .limit(1);
+        
+        if (error) {
+          document.getElementById('table-structure').innerHTML = `
+            <div class="error">
+              <p>❌ Error fetching table structure</p>
+              <pre>${JSON.stringify(error, null, 2)}</pre>
+            </div>
+          `;
+        } else if (data && data.length > 0) {
+          // Show the structure (column names)
+          const columns = Object.keys(data[0]);
+          document.getElementById('table-structure').innerHTML = `
+            <div class="success">
+              <p>✅ Table structure retrieved</p>
+              <p>Columns: ${columns.join(', ')}</p>
+              <pre>${JSON.stringify(data[0], null, 2)}</pre>
+            </div>
+          `;
+        } else {
+          document.getElementById('table-structure').innerHTML = `
+            <div class="warning">
+              <p>⚠️ No data in table to examine structure</p>
+            </div>
+          `;
+        }
+      } catch (err) {
+        document.getElementById('table-structure').innerHTML = `
+          <div class="error">
+            <p>❌ Error checking table structure</p>
+            <pre>${err.message}</pre>
+          </div>
+        `;
+      }
+    }
+    
+    async function fetchTableData() {
+      try {
+        const { data, error } = await supabase
+          .from('news')
+          .select('*')
+          .order('created_at', { ascending: false });
+        
+        if (error) {
+          document.getElementById('table-data').innerHTML = `
+            <div class="error">
+              <p>❌ Error fetching data</p>
+              <pre>${JSON.stringify(error, null, 2)}</pre>
+            </div>
+          `;
+        } else if (data && data.length > 0) {
+          document.getElementById('table-data').innerHTML = `
+            <div class="success">
+              <p>✅ Data retrieved (${data.length} rows)</p>
+              <pre>${JSON.stringify(data, null, 2)}</pre>
+            </div>
+          `;
+        } else {
+          document.getElementById('table-data').innerHTML = `
+            <div class="warning">
+              <p>⚠️ No data in table</p>
+            </div>
+          `;
+        }
+      } catch (err) {
+        document.getElementById('table-data').innerHTML = `
+          <div class="error">
+            <p>❌ Error fetching data</p>
+            <pre>${err.message}</pre>
+          </div>
+        `;
+      }
+    }
+    
+    // Run all tests
+    function runAllTests() {
+      testConnection();
+      listTables();
+      checkTableStructure();
+      fetchTableData();
+    }
+    
+    // Run tests on page load
+    runAllTests();
+    
+    // Add refresh button functionality
+    document.getElementById('refresh-btn').addEventListener('click', runAllTests);
+  </script>
+</body>
+</html>

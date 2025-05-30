@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supabase Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+<body>
+  <h1>Supabase Connection Test</h1>
+  <div id="result"></div>
+
+  <script type="module">
+    import supabase from './js/supabaseClient.js';
+
+    async function testSupabaseConnection() {
+      document.getElementById('result').innerHTML = 'Testing Supabase connection...';
+      
+      try {
+        // List all tables in the public schema
+        const { data, error } = await supabase
+          .from('news')
+          .select('*')
+          .limit(5);
+        
+        if (error) {
+          document.getElementById('result').innerHTML = `Error fetching news table: ${error.message}`;
+          console.error('Error fetching news table:', error);
+        } else {
+          document.getElementById('result').innerHTML = `Success! Found ${data.length} news articles.<br>Data: <pre>${JSON.stringify(data, null, 2)}</pre>`;
+          console.log('News table data:', data);
+        }
+      } catch (error) {
+        document.getElementById('result').innerHTML = `Error testing Supabase connection: ${error.message}`;
+        console.error('Error testing Supabase connection:', error);
+      }
+    }
+
+    testSupabaseConnection();
+  </script>
+</body>
+</html>

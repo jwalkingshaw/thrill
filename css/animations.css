@@ -1,0 +1,426 @@
+/* THRILLFIL Animations and Transitions */
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s var(--transition-function) forwards;
+}
+
+/* Staggered Fade In for Multiple Elements */
+.stagger-fade-in > * {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s var(--transition-function) forwards;
+}
+
+.stagger-fade-in > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-fade-in > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-fade-in > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-fade-in > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-fade-in > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-fade-in > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* Slide In Animations */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.8s var(--transition-function) forwards;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.8s var(--transition-function) forwards;
+}
+
+.slide-in-up {
+    animation: slideInUp 0.8s var(--transition-function) forwards;
+}
+
+/* Scale Animations */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.scale-in {
+    animation: scaleIn 0.8s var(--transition-function) forwards;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Rotate Animation */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate {
+    animation: rotate 8s linear infinite;
+}
+
+/* Tab Content Transitions */
+.tab-transition-fade {
+    transition: 
+        opacity var(--transition-speed) var(--transition-function),
+        transform var(--transition-speed) var(--transition-function);
+}
+
+.tab-transition-slide-left {
+    transition: 
+        opacity var(--transition-speed) var(--transition-function),
+        transform var(--transition-speed) var(--transition-function);
+    transform: translateX(-30px);
+}
+
+.tab-transition-slide-right {
+    transition: 
+        opacity var(--transition-speed) var(--transition-function),
+        transform var(--transition-speed) var(--transition-function);
+    transform: translateX(30px);
+}
+
+.tab-transition-active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Section Transition Effects */
+.section {
+    /* transition: transform 0.5s var(--transition-function), opacity 0.5s var(--transition-function); */
+    will-change: transform, opacity;
+    position: relative;
+    z-index: 1;
+}
+
+.section-active {
+    z-index: 2;
+}
+
+/* Entering from bottom (moving up) */
+.section-enter-up {
+    transform: translateY(100%);
+    animation: slideFromBottom 0.5s var(--transition-function) forwards;
+}
+
+@keyframes slideFromBottom {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+/* Entering from top (moving down) */
+.section-enter-down {
+    transform: translateY(-100%);
+    animation: slideFromTop 0.5s var(--transition-function) forwards;
+}
+
+@keyframes slideFromTop {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+/* Exiting to top (moving up) */
+.section-exit-up {
+    transform: translateY(0);
+    animation: slideToTop 0.5s var(--transition-function) forwards;
+}
+
+@keyframes slideToTop {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100%); }
+}
+
+/* Exiting to bottom (moving down) */
+.section-exit-down {
+    transform: translateY(0);
+    animation: slideToBottom 0.5s var(--transition-function) forwards;
+}
+
+@keyframes slideToBottom {
+    from { transform: translateY(0); }
+    to { transform: translateY(100%); }
+}
+
+/* Special Animations for Interactive Elements */
+
+/* Distribution Network Visualization Animation */
+@keyframes networkFlow {
+    0% {
+        stroke-dashoffset: 1000;
+        opacity: 0.3;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+}
+
+.network-line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: networkFlow 3s var(--transition-function) forwards;
+}
+
+/* Market Map Pulse Points */
+@keyframes mapPointPulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.map-point {
+    animation: mapPointPulse 2s infinite;
+}
+
+/* Tab Indicator Animation */
+@keyframes tabIndicator {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.tab-indicator-animation {
+    animation: tabIndicator 0.4s var(--transition-function) forwards;
+}
+
+/* Button Hover Effects */
+.button-hover-effect {
+    transition: 
+        transform 0.3s var(--transition-function),
+        box-shadow 0.3s var(--transition-function),
+        background-color 0.3s var(--transition-function);
+}
+
+.button-hover-effect:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Icon Container Animations */
+@keyframes iconPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 107, 53, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
+    }
+}
+
+.icon-pulse {
+    animation: iconPulse 2s infinite;
+}
+
+/* Scroll Snap Animation */
+.scroll-snap-transition {
+    transition: transform 0.6s var(--transition-function);
+}
+
+/* ANZ Map Animation */
+@keyframes mapFadeIn {
+    0% {
+        opacity: 0;
+        filter: blur(10px);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+.map-animation {
+    animation: mapFadeIn 1.5s var(--transition-function) forwards;
+}
+
+/* Approach Step Animation */
+@keyframes stepHighlight {
+    0% {
+        background-color: var(--green-primary);
+    }
+    50% {
+        background-color: var(--orange-primary);
+    }
+    100% {
+        background-color: var(--green-primary);
+    }
+}
+
+.step-highlight {
+    animation: stepHighlight 3s infinite;
+}
+
+/* Results Counter Animation */
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.count-animation {
+    animation: countUp 1s var(--transition-function) forwards;
+}
+
+/* Hybrid Flow Animation */
+@keyframes flowAnimation {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.flow-line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: flowAnimation 3s var(--transition-function) forwards;
+}
+
+/* Tab Content Transition Variations */
+.tab-fade {
+    opacity: 0;
+    transition: opacity 0.5s var(--transition-function);
+}
+
+.tab-fade.active {
+    opacity: 1;
+}
+
+.tab-slide-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 
+        opacity 0.5s var(--transition-function),
+        transform 0.5s var(--transition-function);
+}
+
+.tab-slide-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tab-slide-left {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: 
+        opacity 0.5s var(--transition-function),
+        transform 0.5s var(--transition-function);
+}
+
+.tab-slide-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.tab-slide-right {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: 
+        opacity 0.5s var(--transition-function),
+        transform 0.5s var(--transition-function);
+}
+
+.tab-slide-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Section Indicator Animation */
+@keyframes indicatorPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.indicator-pulse {
+    animation: indicatorPulse 2s infinite;
+}

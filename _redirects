@@ -1,0 +1,7 @@
+# Redirects for HTML5 pushState (client-side routing)
+/news/* /news.html 200
+/contact /contact.html 200
+/news /news.html 200
+
+# Catch-all for SPA routing (must be last)
+/* /index.html 200

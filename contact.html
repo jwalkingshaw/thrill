@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | THRILLFIL</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/animations.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <header>
+    <button class="hamburger" aria-label="Open navigation" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <nav class="nav-overlay" aria-hidden="true">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#horizontal-services">Services</a></li>
+        <li><a href="#case-studies">Case Studies</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#engagement">Engagement</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="contact" class="section">
+      <div class="content-wrapper">
+        <h2 class="section-title">Get in touch</h2>
+        <p class="section-subtitle">Start a conversation today with our solution experts and discover how THRILLFIL can enable a journey of digital commerce growth for your business. All fields are required, apart from the optional message.</p>
+        <form id="contact-form" class="contact-form">
+          <div class="contact-form-row">
+            <div class="contact-form-group">
+              <label for="full_name">Full Name*</label>
+              <input type="text" id="full_name" name="full_name" placeholder="Full name" required />
+            </div>
+            <div class="contact-form-group">
+              <label for="job_title">Job title*</label>
+              <input type="text" id="job_title" name="job_title" placeholder="Your Job Title" required />
+            </div>
+          </div>
+          <div class="contact-form-row">
+            <div class="contact-form-group">
+              <label for="business_email">Business Email*</label>
+              <input type="email" id="business_email" name="business_email" placeholder="Your email" required />
+            </div>
+            <div class="contact-form-group">
+              <label for="solution">Solution of interest*</label>
+              <select id="solution" name="solution" required>
+                <option value="">Select...</option>
+                <option value="Brand Strategy">Brand Strategy</option>
+                <option value="Marketing Activation">Marketing Activation</option>
+                <option value="Distribution">Distribution</option>
+                <option value="E-commerce Solutions">E-commerce Solutions</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="contact-form-row">
+            <div class="contact-form-group">
+              <label for="company">Company*</label>
+              <input type="text" id="company" name="company" placeholder="Your company name" required />
+            </div>
+            <div class="contact-form-group">
+              <label for="message">Message (optional)</label>
+              <textarea id="message" name="message" placeholder="Write a message" rows="5"></textarea>
+            </div>
+          </div>
+          <div class="contact-form-checkboxes">
+            <div class="checkbox-group">
+              <input type="checkbox" id="agree_privacy" name="agree_privacy" required />
+              <label for="agree_privacy">I agree to the processing and storing of my personal data as outlined in the Privacy policy.</label>
+            </div>
+            <div class="checkbox-group">
+              <input type="checkbox" id="agree_marketing" name="agree_marketing" />
+              <label for="agree_marketing">I want to receive the latest industry, ecommerce and product news and other marketing communications.</label>
+            </div>
+          </div>
+          <div class="contact-form-actions">
+            <button type="submit" id="contact-submit" class="contact-submit">Submit</button>
+          </div>
+          <div id="contact-status" class="contact-status"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="content-wrapper">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="images/thrillfil-logo.svg" alt="THRILLFIL Logo">
+        </div>
+        <div class="footer-links">
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#case-studies">Case Studies</a></li>
+            <li><a href="#approach">Our Approach</a></li>
+            <li><a href="#engagement">Partner With Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <p>Sydney | Melbourne | Auckland</p>
+          <p>info@thrillfil.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 THRILLFIL. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

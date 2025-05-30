@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>News Article | THRILLFIL</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/news.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+<body>
+  <header>
+    <button class="hamburger" aria-label="Open navigation" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <nav class="nav-overlay" aria-hidden="true">
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/news.html">News</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="news-article-container">
+    <div id="news-article"></div>
+  </div>
+  <script type="module" src="/js/news-article.js"></script>
+  <script src="/js/nav.js"></script>
+</body>
+</html>

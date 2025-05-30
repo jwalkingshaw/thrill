@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="50px" viewBox="0 0 200 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>THRILLFIL Logo</title>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(0, 0)">
+            <!-- THRILL -->
+            <path d="M10,10 L10,40 L18,40 L18,18 L22,18 L22,10 L10,10 Z" fill="#1A1A1A"></path>
+            <path d="M24,10 L24,40 L32,40 L32,10 L24,10 Z" fill="#1A1A1A"></path>
+            <path d="M34,10 L34,40 L42,40 L42,10 L34,10 Z" fill="#1A1A1A"></path>
+            <path d="M44,10 L44,40 L52,40 L52,10 L44,10 Z" fill="#1A1A1A"></path>
+            <path d="M54,10 L54,40 L62,40 L62,10 L54,10 Z" fill="#1A1A1A"></path>
+            <path d="M64,10 L64,40 L72,40 L72,30 L80,40 L90,40 L80,28 L90,10 L80,10 L72,20 L72,10 L64,10 Z" fill="#1A1A1A"></path>
+            
+            <!-- FIL -->
+            <path d="M100,10 L100,40 L108,40 L108,30 L118,30 L118,22 L108,22 L108,18 L120,18 L120,10 L100,10 Z" fill="#FF6B35"></path>
+            <path d="M122,10 L122,40 L130,40 L130,10 L122,10 Z" fill="#FF6B35"></path>
+            <path d="M132,10 L132,40 L152,40 L152,32 L140,32 L140,10 L132,10 Z" fill="#FF6B35"></path>
+            
+            <!-- Decorative Elements -->
+            <rect x="95" y="10" width="2" height="30" fill="#4CAF50"></rect>
+            <circle cx="10" cy="10" r="2" fill="#4CAF50"></circle>
+            <circle cx="152" cy="40" r="2" fill="#4CAF50"></circle>
+            
+            <!-- Distribution × Marketing: Amplified -->
+            <text font-family="Arial" font-size="6" fill="#333333" x="10" y="46">Distribution × Marketing: Amplified</text>
+        </g>
+    </g>
+</svg>
