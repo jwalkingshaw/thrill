@@ -165,13 +165,13 @@ body.nav-open {
   transform: translateY(-11px) rotate(-45deg);
 }
 
-/* Scroll Container */
+/* Main container */
 .scroll-container {
     position: relative;
-    height: 100vh;
+    width: 100%;
+    min-height: 100vh;
     overflow-y: auto;
-    overflow-x: hidden;
-    scroll-snap-type: none;
+    scroll-behavior: smooth;
 }
 
 /* Background Utility Classes */
@@ -500,27 +500,7 @@ body.nav-open {
     background: var(--orange-primary);
 }
 
-.horizontal-scroll-wrapper {
-    position: relative;
-    width: 100%;
-    flex-grow: 1;
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    scroll-padding: 0 33vw;
-    display: flex;
-    align-items: flex-end;
-    padding-bottom: 10vh;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-.horizontal-scroll-wrapper::-webkit-scrollbar {
-    display: none;
-    height: 0;
-    width: 0;
-}
+/* Horizontal scroll wrapper - removed */
 
 /* Contact Form Styles */
 #contact.section {
@@ -1119,37 +1099,6 @@ body.nav-open {
     color: rgba(255,255,255,0.7);
 }
 
-/* Section Indicator */
-.section-indicator {
-    position: fixed;
-    right: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    z-index: 10;
-}
-
-.indicator-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: rgba(255,255,255,0.2);
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.indicator-dot:hover {
-    background-color: var(--orange-secondary);
-    transform: scale(1.2);
-}
-
-.indicator-dot.active {
-    background-color: var(--orange-primary);
-    transform: scale(1.2);
-}
-
 /* Responsive Styles */
 @media (max-width: 1200px) {
     .content-grid,
@@ -1249,37 +1198,7 @@ body.nav-open {
         max-width: 100%;
     }
     
-    /* Convert horizontal scroll to vertical stack */
-    .horizontal-scroll-wrapper {
-        overflow-x: visible;
-        overflow-y: auto;
-        padding-bottom: 2rem;
-        display: block;
-        height: auto;
-    }
-    
-    .horizontal-content {
-        display: block;
-        height: auto;
-        width: 100%;
-        padding: 0 1.5rem;
-    }
-    
-    .service-panel {
-        min-width: unset;
-        width: 100%;
-        height: auto;
-        margin: 0 0 2rem 0;
-        border-radius: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    }
-    
-    .panel-content {
-        padding: 1.5rem;
-        height: auto;
-    }
-    
+    /* Service grid for mobile */
     .service-grid {
         grid-template-columns: 1fr;
         gap: 1.2rem;
@@ -1295,11 +1214,6 @@ body.nav-open {
     
     .service-item p {
         font-size: 0.9rem;
-    }
-    
-    /* Hide progress bar on mobile */
-    .horizontal-scroll-progress {
-        display: none;
     }
     
     .scroll-container {

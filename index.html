@@ -14,6 +14,13 @@
   <link rel="stylesheet" href="/css/services-section.css" />
   <header class="thrill-header">
     <div class="thrill-header__container">
+      <!-- Mobile menu button -->
+      <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="thrill-navigation">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+      
       <a href="/index.html" class="thrill-logo" aria-label="THRILL Home">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="6" fill="#fff"/><rect x="10" y="10" width="12" height="12" rx="3" fill="#111"/></svg>
       </a>
@@ -83,8 +90,11 @@
       </nav>
       <a href="/contact.html" class="thrill-cta">Contact Us</a>
     </div>
+    
+    <!-- Mobile navigation overlay -->
+    <div class="nav-overlay" aria-hidden="true"></div>
   </header>
-    <div class="scroll-container">
+    <div>
         <!-- Entry Section -->
         <section id="entry" class="section">
 
@@ -159,98 +169,6 @@
                                     <polyline points="12 5 19 12 12 19"></polyline>
                                 </svg>
                             </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-                    <!-- Service Panel 1 -->
-                    <div class="service-panel">
-                        <div class="panel-content">
-                            <h3>Brand Strategy</h3>
-                            <div class="service-grid">
-                                <div class="service-item">
-                                    <div class="icon-container">
-                                        <i class="fas fa-chess-queen"></i>
-                                    </div>
-                                    <h4>Brand Positioning</h4>
-                                    <p>Define your unique value proposition and market position to stand out in the ANZ market.</p>
-                                </div>
-                                <div class="service-item">
-                                    <div class="icon-container">
-                                        <i class="fas fa-bullseye"></i>
-                                    </div>
-                                    <h4>Audience Research</h4>
-                                    <p>Deep dive into your target audience's needs, behaviors, and preferences.</p>
-                                </div>
-                                <div class="service-item">
-                                    <div class="icon-container">
-                                        <i class="fas fa-comments"></i>
-                                    </div>
-                                    <h4>Messaging</h4>
-                                    <p>Craft compelling brand messages that resonate with your audience.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Service Panel 2 -->
-                    <div class="service-panel">
-                        <div class="panel-content">
-                            <h3>Digital Marketing</h3>
-                            <div class="service-grid">
-                                <div class="service-item">
-                                    <div class="icon-container">
-                                        <i class="fas fa-search"></i>
-                                    </div>
-                                    <h4>SEO & Content</h4>
-                                    <p>Improve search rankings and drive organic traffic with our strategic SEO and content marketing.</p>
-                                </div>
-                                <div class="service-item">
-                                    <div class="icon-container">
-                                        <i class="fas fa-ad"></i>
-                                    </div>
-                                    <h4>Paid Advertising</h4>
-                                    <p>Targeted PPC campaigns across Google, Meta, and other platforms to maximize ROI.</p>
-                                </div>
-                                <div class="service-item">
-                                    <div class="icon-container">
-                                        <i class="fas fa-envelope"></i>
-                                    </div>
-                                    <h4>Email Marketing</h4>
-                                    <p>Engage your audience with personalized, data-driven email campaigns.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Service Panel 3 -->
-                    <div class="service-panel">
-                        <div class="panel-content">
-                            <h3>E-commerce Solutions</h3>
-                            <div class="service-grid">
-                                <div class="service-item">
-                                    <div class="icon-container">
-                                        <i class="fas fa-shopping-cart"></i>
-                                    </div>
-                                    <h4>Shopify & WooCommerce</h4>
-                                    <p>Custom e-commerce solutions tailored to your business needs.</p>
-                                </div>
-                                <div class="service-item">
-                                    <div class="icon-container">
-                                        <i class="fas fa-tags"></i>
-                                    </div>
-                                    <h4>Marketplace Integration</h4>
-                                    <p>Expand your reach by selling on Amazon, eBay, and other marketplaces.</p>
-                                </div>
-                                <div class="service-item">
-                                    <div class="icon-container">
-                                        <i class="fas fa-chart-pie"></i>
-                                    </div>
-                                    <h4>Analytics</h4>
-                                    <p>Data-driven insights to optimize your e-commerce performance.</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -459,17 +377,7 @@
         </footer>
     </div>
 
-    <!-- Progress Bar for Horizontal Scroll -->
-    <div class="scroll-progress"></div>
-
-    <!-- Navigation Indicator -->
-    <div class="section-indicator">
-        <div class="indicator-dot" data-section="entry"></div>
-        <div class="indicator-dot" data-section="horizontal-services"></div>
-        <div class="indicator-dot" data-section="case-studies"></div>
-        <div class="indicator-dot" data-section="approach"></div>
-        <div class="indicator-dot" data-section="engagement"></div>
-    </div>
+    <!-- Navigation Indicator Removed -->
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
