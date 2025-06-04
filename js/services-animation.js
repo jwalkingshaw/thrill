@@ -1,28 +1,36 @@
-// Services Section Animation - GSAP ScrollTrigger stacked pinning
+// Services Section Animation - GSAP ScrollTrigger stacked pinning with header offset and stacking below H3
 
 document.addEventListener('DOMContentLoaded', function () {
   if (window.gsap && window.ScrollTrigger) {
+    const header = document.querySelector('.site-header');
+    const headerHeight = header ? header.offsetHeight : 0;
     const cards = document.querySelectorAll('.service-card');
-    let pinSpacing = 0;
 
+    let cumulativeOffset = 0;
     cards.forEach((card, i) => {
       let h3 = card.querySelector('h3');
-      let pinTarget = h3 || card;
-      let start = i === 0 ? 'top top' : `top+=${pinSpacing} top`;
-      gsap.set(card, {zIndex: cards.length - i});
+      let prevCard = i > 0 ? cards[i - 1] : null;
+      let prevH3 = prevCard ? prevCard.querySelector('h3') : null;
+      let startOffset = headerHeight + cumulativeOffset;
+      let start = i === 0 ? `top+=${headerHeight} top` : `top+=${startOffset} top`;
+
+      // Pin each card below the previous card's H3
       ScrollTrigger.create({
         trigger: card,
         start: start,
         pin: true,
         pinSpacing: false,
-        onEnter: () => {
-          card.classList.add('pinned');
-        },
-        onLeaveBack: () => {
-          card.classList.remove('pinned');
-        }
+        pinnedContainer: card.parentElement,
+        onEnter: () => card.classList.add('pinned'),
+        onLeaveBack: () => card.classList.remove('pinned')
       });
-      pinSpacing += card.offsetHeight;
+
+      // For stacking, add the height of the previous H3 (if exists) or card
+      if (h3) {
+        cumulativeOffset += h3.offsetHeight;
+      } else {
+        cumulativeOffset += card.offsetHeight;
+      }
     });
   }
 });
