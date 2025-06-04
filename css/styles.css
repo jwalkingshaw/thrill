@@ -112,6 +112,70 @@ header {
   transition: all 0.3s cubic-bezier(.68,-0.55,.27,1.55);
 }
 
+/* Desktop dropdown styles */
+@media (min-width: 1025px) {
+  .thrill-nav__item.has-dropdown {
+    position: relative;
+  }
+  
+  .thrill-nav__item.has-dropdown .thrill-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--dark);
+    min-width: 280px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+  }
+  
+  .thrill-nav__item.has-dropdown:hover .thrill-dropdown,
+  .thrill-nav__item.has-dropdown:focus-within .thrill-dropdown {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  
+  .thrill-dropdown__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+  }
+  
+  .thrill-dropdown__desc {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  
+  .thrill-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .thrill-dropdown li a {
+    display: block;
+    padding: 0.5rem 0;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .thrill-dropdown li a:hover,
+  .thrill-dropdown li a:focus {
+    color: var(--white);
+  }
+}
+
 .nav-overlay {
   position: fixed;
   inset: 0;

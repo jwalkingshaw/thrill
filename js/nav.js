@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle
+    // Elements
     const hamburger = document.querySelector('.hamburger');
     const navOverlay = document.querySelector('.nav-overlay');
     const body = document.body;
     const mobileBreakpoint = 1024; // Match this with your CSS breakpoint
+    const dropdownItems = document.querySelectorAll('.thrill-nav__item.has-dropdown');
+    let isMobile = window.innerWidth < mobileBreakpoint;
 
     // Toggle mobile menu
     function toggleMobileMenu() {
@@ -24,24 +26,31 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Toggle dropdown on mobile
-    function toggleDropdown(button) {
-        if (window.innerWidth < mobileBreakpoint) {
+    function toggleDropdown(button, isKeyboard = false) {
+        if (isMobile || isKeyboard) {
             const dropdownItem = button.closest('.thrill-nav__item');
             const isExpanded = button.getAttribute('aria-expanded') === 'true';
             
-            // Close all other dropdowns
-            document.querySelectorAll('.thrill-nav__item').forEach(item => {
-                if (item !== dropdownItem) {
-                    item.classList.remove('active');
-                    const btn = item.querySelector('.thrill-nav__link[aria-haspopup="true"]');
-                    if (btn) btn.setAttribute('aria-expanded', 'false');
-                }
-            });
+            // Close other dropdowns when opening a new one on mobile
+            if (!isExpanded) {
+                closeAllDropdowns();
+            }
 
             // Toggle current dropdown
-            dropdownItem.classList.toggle('active');
+            dropdownItem.classList.toggle('active', !isExpanded);
             button.setAttribute('aria-expanded', !isExpanded);
         }
+    }
+
+    // Close all dropdowns
+    function closeAllDropdowns() {
+        if (!isMobile) return;
+        
+        document.querySelectorAll('.thrill-nav__item').forEach(item => {
+            item.classList.remove('active');
+            const btn = item.querySelector('.thrill-nav__link[aria-haspopup="true"]');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+        });
     }
 
     // Initialize event listeners
@@ -54,16 +63,58 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Handle dropdown toggles
         document.querySelectorAll('.thrill-nav__link[aria-haspopup="true"]').forEach(button => {
+            // Click handler for mobile
             button.addEventListener('click', function(e) {
-                e.preventDefault();
-                toggleDropdown(this);
+                if (isMobile) {
+                    e.preventDefault();
+                    toggleDropdown(this);
+                }
             });
             
-            // Add keyboard navigation
+            // Keyboard navigation
             button.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    toggleDropdown(this);
+                    toggleDropdown(this, true);
+                } else if (e.key === 'Escape') {
+                    closeAllDropdowns();
+                }
+            });
+        });
+        
+        // Handle hover for desktop
+        dropdownItems.forEach(item => {
+            const button = item.querySelector('.thrill-nav__link[aria-haspopup="true"]');
+            
+            if (!button) return;
+            
+            // Mouse enter/leave for desktop
+            item.addEventListener('mouseenter', function() {
+                if (!isMobile) {
+                    this.classList.add('active');
+                    button.setAttribute('aria-expanded', 'true');
+                }
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                if (!isMobile) {
+                    this.classList.remove('active');
+                    button.setAttribute('aria-expanded', 'false');
+                }
+            });
+            
+            // Focus management
+            item.addEventListener('focusin', function() {
+                if (!isMobile) {
+                    this.classList.add('active');
+                    button.setAttribute('aria-expanded', 'true');
+                }
+            });
+            
+            item.addEventListener('focusout', function(e) {
+                if (!isMobile && !this.contains(e.relatedTarget)) {
+                    this.classList.remove('active');
+                    button.setAttribute('aria-expanded', 'false');
                 }
             });
         });
@@ -74,13 +125,20 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', function() {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function() {
-            // Close all dropdowns when resizing to desktop
-            if (window.innerWidth >= mobileBreakpoint) {
-                document.querySelectorAll('.thrill-nav__item').forEach(item => {
-                    item.classList.remove('active');
-                    const btn = item.querySelector('.thrill-nav__link[aria-haspopup="true"]');
-                    if (btn) btn.setAttribute('aria-expanded', 'false');
-                });
+            const wasMobile = isMobile;
+            isMobile = window.innerWidth < mobileBreakpoint;
+            
+            if (!isMobile && wasMobile) {
+                // Reset mobile states when resizing to desktop
+                if (hamburger) {
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    navOverlay.classList.remove('open');
+                    body.classList.remove('nav-open');
+                    closeAllDropdowns();
+                }
+            } else if (isMobile && !wasMobile) {
+                // Close all dropdowns when resizing to mobile
+                closeAllDropdowns();
             }
         }, 250);
     });
