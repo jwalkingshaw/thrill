@@ -220,6 +220,16 @@
   box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
 }
 
+/* Entry Section Full Width */
+.entry-fullwidth {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  background: orange; /* Or your desired background */
+  text-align: center;
+  padding: 5rem 1rem 4rem 1rem;
+}
+
 /* Mobile Menu Styles */
 @media (max-width: 1024px) {
   .menu-toggle {

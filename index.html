@@ -12,19 +12,116 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
-  <!-- Include Navigation -->
-  <?php include_once 'includes/navigation.html'; ?>
+  <!-- Navigation (static include for Netlify) -->
+  <header class="site-header">
+    <div class="container">
+      <!-- Logo -->
+      <a href="/" class="logo">
+        <img src="/images/logo.svg" alt="THRILLFIL Logo" width="150" height="40">
+      </a>
+      <!-- Mobile Menu Toggle -->
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-menu">
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+      </button>
+      <!-- Primary Navigation -->
+      <nav class="primary-nav" id="primary-menu">
+        <ul class="nav-menu">
+          <!-- Home -->
+          <li class="menu-item"><a href="/">Home</a></li>
+          <!-- THRILL Commerce -->
+          <li class="menu-item menu-item-has-children">
+            <a href="/commerce" class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">THRILL Commerce
+              <svg class="dropdown-icon" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="thrill-dropdown">
+              <div class="thrill-dropdown__desc-col">
+                <div class="thrill-dropdown__title accent-commerce">Commerce Solutions</div>
+                <div class="thrill-dropdown__desc">Seamless commerce for modern brands. Expand, sell, and grow globally.</div>
+              </div>
+              <div class="thrill-dropdown__col">
+                <ul>
+                  <li><a href="/commerce/why">Why THRILL Commerce</a></li>
+                  <li><a href="/commerce/solution">Complete Solution</a></li>
+                  <li><a href="/commerce/b2b">B2B</a></li>
+                  <li><a href="/commerce/omnichannel">Omnichannel</a></li>
+                  <li><a href="/commerce/marketplace">Marketplace</a></li>
+                  <li><a href="/commerce/marketing">Performance Marketing</a></li>
+                  <li><a href="/commerce/new-markets">Entering New Markets</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <!-- THRILL Fulfil -->
+          <li class="menu-item menu-item-has-children">
+            <a href="/fulfil" class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">THRILL Fulfil
+              <svg class="dropdown-icon" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="thrill-dropdown">
+              <div class="thrill-dropdown__desc-col">
+                <div class="thrill-dropdown__title accent-fulfil">Fulfilment Solutions</div>
+                <div class="thrill-dropdown__desc">Global network, local expertise. Inventory, logistics, and returns.</div>
+              </div>
+              <div class="thrill-dropdown__col">
+                <ul>
+                  <li><a href="/fulfil/why">Why THRILL Fulfil</a></li>
+                  <li><a href="/fulfil/network">Global Network</a></li>
+                  <li><a href="/fulfil/inventory">Inventory Management</a></li>
+                  <li><a href="/fulfil/returns">Returns & Logistics</a></li>
+                  <li><a href="/fulfil/delivery">Last Mile Delivery</a></li>
+                  <li><a href="/fulfil/tracking">Order Tracking</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <!-- THRILL Media -->
+          <li class="menu-item menu-item-has-children">
+            <a href="/media" class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">THRILL Media
+              <svg class="dropdown-icon" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="thrill-dropdown">
+              <div class="thrill-dropdown__desc-col">
+                <div class="thrill-dropdown__title accent-media">Media Solutions</div>
+                <div class="thrill-dropdown__desc">Creative content that engages and converts your audience.</div>
+              </div>
+              <div class="thrill-dropdown__col">
+                <ul>
+                  <li><a href="/media/creative">Creative Design</a></li>
+                  <li><a href="/media/content">Content Production</a></li>
+                  <li><a href="/media/campaigns">Campaign Management</a></li>
+                  <li><a href="/media/influencer">Influencer Marketing</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <!-- About Us -->
+          <li class="menu-item"><a href="/about.html">About Us</a></li>
+          <!-- Case Studies -->
+          <li class="menu-item"><a href="/case-studies.html">Case Studies</a></li>
+          <!-- News -->
+          <li class="menu-item"><a href="/news.html">News</a></li>
+          <!-- Contact -->
+          <li class="menu-item menu-item-cta"><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
   
   <main>
+    <!-- Entry Section (full width) -->
+    <section id="entry" class="section entry-fullwidth">
+      <h1 class="headline">EVERYTHING CAN BE THRILLING</h1>
+      <p class="subheadline">Australia & New Zealand</p>
+      <a href="contact.html" class="cta-button get-in-touch-btn">Get in touch</a>
+    </section>
     <div class="content-wrapper">
-      <!-- Entry Section -->
-      <section id="entry" class="section">
-        <div class="content-wrapper">
-          <h1 class="headline">EVERYTHING CAN BE THRILLING</h1>
-          <p class="subheadline">Australia & New Zealand</p>
-          <a href="contact.html" class="cta-button get-in-touch-btn">Get in touch</a>
-        </div>
-      </section>
 
         <!-- Services Grid Section -->
         <section id="services" class="services-section">
