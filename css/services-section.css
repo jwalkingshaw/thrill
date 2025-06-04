@@ -1,6 +1,6 @@
 /* Services Section Styles */
 .services-section {
-  padding: 0;
+  padding: 80px 40px;
   background: #f8f8f8;
   position: relative;
   overflow: hidden;
@@ -38,23 +38,30 @@
 }
 
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
   margin-top: 40px;
+  width: 100%;
+  align-items: center;
 }
 
 .service-card {
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  position: relative;
-  height: 500px;
+  min-height: 340px;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+  transition: box-shadow 0.4s, transform 0.4s;
+  position: relative;
   cursor: pointer;
+  padding: 2.5rem 2rem 2rem 2rem;
+  z-index: 1;
 }
 
 .service-card::before {
@@ -206,10 +213,10 @@
   transform: translateY(0);
 }
 
-.service-card.active {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  z-index: 2;
+.service-card.pinned {
+  z-index: 10 !important;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.13);
+  /* Optionally, add transform or border */
 }
 
 .section.service-section {
@@ -222,7 +229,21 @@
   background: transparent;
 }
 
-.section.service-section h3 {
+.service-card h3 {
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.97);
+  font-size: 2.2rem;
+  color: #222;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.5rem;
+  z-index: 20;
+  padding: 1.5rem 0 1rem 0;
+  border-radius: 1.5rem 1.5rem 0 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  text-align: center;
+}
   position: sticky;
   top: 0;
   background: rgba(255,255,255,0.95);

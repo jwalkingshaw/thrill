@@ -1,4 +1,32 @@
-// Services Section Animation
+// Services Section Animation - GSAP ScrollTrigger stacked pinning
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.gsap && window.ScrollTrigger) {
+    const cards = document.querySelectorAll('.service-card');
+    let pinSpacing = 0;
+
+    cards.forEach((card, i) => {
+      let h3 = card.querySelector('h3');
+      let pinTarget = h3 || card;
+      let start = i === 0 ? 'top top' : `top+=${pinSpacing} top`;
+      gsap.set(card, {zIndex: cards.length - i});
+      ScrollTrigger.create({
+        trigger: card,
+        start: start,
+        pin: true,
+        pinSpacing: false,
+        onEnter: () => {
+          card.classList.add('pinned');
+        },
+        onLeaveBack: () => {
+          card.classList.remove('pinned');
+        }
+      });
+      pinSpacing += card.offsetHeight;
+    });
+  }
+});
+
 document.addEventListener('DOMContentLoaded', function() {
   // Intersection Observer for scroll animations
   const animateOnScroll = () => {
