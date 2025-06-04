@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="/css/navigation.css" />
   <link rel="stylesheet" href="/css/dropdown-styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <!-- fullPage.js CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.24/dist/fullpage.min.css" />
 </head>
 <body>
   <!-- Navigation (static include for Netlify) -->
@@ -123,23 +125,24 @@
     </section>
     <div class="content-wrapper">
 
-        <!-- Services Grid Section -->
+        <!-- Services FullPage Section -->
         <section id="services" class="services-section">
             <div class="services-container">
                 <div class="section-header">
                     <h2>Our Solutions</h2>
                     <p>Comprehensive commerce solutions to grow your brand in the ANZ market and beyond</p>
                 </div>
-                
-                <div class="services-grid">
-                    <!-- THRILL Commerce -->
+            </div>
+            <div id="fullpage">
+                <div class="section service-section">
                     <div class="service-card commerce">
+                        <div class="service-content">
+                            <h3>THRILL Commerce</h3>
+                        </div>
                         <div class="service-media">
-                            <!-- Replace with your actual image/video -->
                             <img src="images/commerce-thumbnail.jpg" alt="THRILL Commerce">
                         </div>
                         <div class="service-content">
-                            <h3>THRILL Commerce</h3>
                             <p>End-to-end eCommerce solutions that drive growth and customer engagement. From marketplace integration to conversion optimization, we've got you covered.</p>
                             <a href="#" class="service-link">
                                 Explore Commerce
@@ -150,15 +153,16 @@
                             </a>
                         </div>
                     </div>
-                    
-                    <!-- THRILL Fulfil -->
+                </div>
+                <div class="section service-section">
                     <div class="service-card fulfil">
+                        <div class="service-content">
+                            <h3>THRILL Fulfil</h3>
+                        </div>
                         <div class="service-media">
-                            <!-- Replace with your actual image/video -->
                             <img src="images/fulfil-thumbnail.jpg" alt="THRILL Fulfil">
                         </div>
                         <div class="service-content">
-                            <h3>THRILL Fulfil</h3>
                             <p>Seamless order fulfillment and logistics solutions. Our network ensures fast, reliable delivery and exceptional customer experiences across ANZ.</p>
                             <a href="#" class="service-link">
                                 Discover Fulfilment
@@ -169,15 +173,16 @@
                             </a>
                         </div>
                     </div>
-                    
-                    <!-- THRILL Media -->
+                </div>
+                <div class="section service-section">
                     <div class="service-card create">
+                        <div class="service-content">
+                            <h3>THRILL Media</h3>
+                        </div>
                         <div class="service-media">
-                            <!-- Replace with your actual image/video -->
                             <img src="images/media-thumbnail.jpg" alt="THRILL Media">
                         </div>
                         <div class="service-content">
-                            <h3>THRILL Media</h3>
                             <p>Creative solutions that tell your brand's story. From content creation to campaign management, we help you connect with your audience.</p>
                             <a href="#" class="service-link">
                                 View Our Work
@@ -403,5 +408,8 @@
 <script src="/js/navigation.js"></script>
 <script src="/js/main.js"></script>
 <script src="/js/services-animation.js"></script>
+<!-- fullPage.js -->
+<script src="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.24/dist/fullpage.min.js"></script>
+<script src="/js/services-fullpage.js"></script>
 </body>
 </html>
