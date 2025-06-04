@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/css/styles.css" />
   <link rel="stylesheet" href="/css/animations.css" />
   <link rel="stylesheet" href="/css/navigation.css" />
+  <link rel="stylesheet" href="/css/dropdown-styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
@@ -15,92 +16,15 @@
   <?php include_once 'includes/navigation.html'; ?>
   
   <main>
-    <!-- Your existing content here -->
-      </button>
-      
-      <a href="/index.html" class="thrill-logo" aria-label="THRILL Home">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="6" fill="#fff"/><rect x="10" y="10" width="12" height="12" rx="3" fill="#111"/></svg>
-      </a>
-      <nav class="thrill-nav" aria-label="Main navigation">
-  <ul class="thrill-nav__list">
-    <li class="thrill-nav__item has-dropdown">
-      <button class="thrill-nav__link" aria-haspopup="true" aria-expanded="false">THRILL Commerce</button>
-      <div class="thrill-dropdown">
-        <div class="thrill-dropdown__col">
-          <div class="thrill-dropdown__title accent-commerce">Commerce Solutions</div>
-          <div class="thrill-dropdown__desc">Seamless commerce for modern brands.<br>Expand, sell, and grow globally.</div>
+    <div class="content-wrapper">
+      <!-- Entry Section -->
+      <section id="entry" class="section">
+        <div class="content-wrapper">
+          <h1 class="headline">EVERYTHING CAN BE THRILLING</h1>
+          <p class="subheadline">Australia & New Zealand</p>
+          <a href="contact.html" class="cta-button get-in-touch-btn">Get in touch</a>
         </div>
-        <div class="thrill-dropdown__col">
-          <ul>
-            <li><a href="#">Why THRILL Commerce</a></li>
-            <li><a href="#">Complete Solution</a></li>
-            <li><a href="#">B2B</a></li>
-            <li><a href="#">Omnichannel</a></li>
-            <li><a href="#">Marketplace Social</a></li>
-            <li><a href="#">Performance Marketing</a></li>
-            <li><a href="#">Entering New Markets</a></li>
-          </ul>
-        </div>
-      </div>
-    </li>
-    <li class="thrill-nav__item has-dropdown">
-      <button class="thrill-nav__link" aria-haspopup="true" aria-expanded="false">THRILL Fulfil</button>
-      <div class="thrill-dropdown">
-        <div class="thrill-dropdown__col">
-          <div class="thrill-dropdown__title accent-fulfil">Fulfilment Solutions</div>
-          <div class="thrill-dropdown__desc">Global network, local expertise.<br>Inventory, logistics, and returns.</div>
-        </div>
-        <div class="thrill-dropdown__col">
-          <ul>
-            <li><a href="#">Why THRILL Fulfil</a></li>
-            <li><a href="#">Global Network</a></li>
-            <li><a href="#">Inventory Management</a></li>
-            <li><a href="#">Returns & Logistics</a></li>
-            <li><a href="#">Last Mile Delivery</a></li>
-            <li><a href="#">Order Tracking</a></li>
-          </ul>
-        </div>
-      </div>
-    </li>
-    <li class="thrill-nav__item has-dropdown">
-      <button class="thrill-nav__link" aria-haspopup="true" aria-expanded="false">THRILL Media</button>
-      <div class="thrill-dropdown">
-        <div class="thrill-dropdown__col">
-          <div class="thrill-dropdown__title accent-create">Create Solutions</div>
-          <div class="thrill-dropdown__desc">Brand strategy and creative.<br>Content that inspires action.</div>
-        </div>
-        <div class="thrill-dropdown__col">
-          <ul>
-            <li><a href="thrill-media.html">Why THRILL Media</a></li>
-            <li><a href="#">Brand Strategy</a></li>
-            <li><a href="#">Creative Design</a></li>
-            <li><a href="#">Content Production</a></li>
-            <li><a href="#">Campaign Management</a></li>
-            <li><a href="#">Influencer Marketing</a></li>
-          </ul>
-        </div>
-      </div>
-    </li>
-    <li class="thrill-nav__item"><a class="thrill-nav__link" href="/about.html">ABOUT US</a></li>
-    <li class="thrill-nav__item"><a class="thrill-nav__link" href="/case-studies.html">CASE STUDIES</a></li>
-  </ul>
-</nav>
-      <a href="/contact.html" class="thrill-cta">Contact Us</a>
-    </div>
-    
-    <!-- Mobile navigation overlay -->
-    <div class="nav-overlay" aria-hidden="true"></div>
-      <div class="content-wrapper">
-        <!-- Entry Section -->
-        <section id="entry" class="section">
-
-
-            <div class="content-wrapper">
-                <h1 class="headline">EVERYTHING CAN BE THRILLING</h1>
-                <p class="subheadline">Australia & New Zealand</p>
-                <a href="contact.html" class="cta-button get-in-touch-btn">Get in touch</a>
-            </div>
-        </section>
+      </section>
 
         <!-- Services Grid Section -->
         <section id="services" class="services-section">
@@ -381,7 +305,6 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
 <script src="/js/navigation.js"></script>
 <script src="/js/main.js"></script>
-<script src="js/nav.js"></script>
 <script src="/js/services-animation.js"></script>
 </body>
 </html>

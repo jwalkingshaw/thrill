@@ -1,0 +1,125 @@
+/* Dropdown Container */
+.thrill-dropdown {
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 2rem;
+  min-width: 600px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+/* Show dropdown on hover */
+.thrill-nav__item:hover .thrill-dropdown,
+.thrill-nav__item:focus-within .thrill-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Description Column (Left) */
+.thrill-dropdown__desc-col {
+  flex: 0 0 40%;
+  padding-right: 2rem;
+  border-right: 1px solid #eee;
+}
+
+.thrill-dropdown__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.thrill-dropdown__desc {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Links Column (Right) */
+.thrill-dropdown__col {
+  flex: 1;
+  padding-left: 2rem;
+}
+
+.thrill-dropdown__col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.thrill-dropdown__col li {
+  margin: 0;
+  padding: 0;
+}
+
+.thrill-dropdown__col a {
+  display: block;
+  padding: 0.5rem 0;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.thrill-dropdown__col a:hover {
+  color: #0066cc;
+}
+
+/* Accent Colors */
+.accent-commerce {
+  color: #ff5500; /* Adjust to your brand color */
+}
+
+.accent-fulfil {
+  color: #00a896; /* Adjust to your brand color */
+}
+
+/* Mobile Styles */
+@media (max-width: 1024px) {
+  .thrill-dropdown {
+    position: static;
+    display: block;
+    min-width: 100%;
+    padding: 1rem;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .thrill-nav__item.active .thrill-dropdown {
+    max-height: 1000px; /* Adjust based on content */
+    padding: 1rem;
+  }
+
+  .thrill-dropdown__desc-col {
+    padding-right: 0;
+    padding-bottom: 1rem;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 1rem;
+  }
+
+  .thrill-dropdown__col {
+    padding-left: 0;
+  }
+
+  .thrill-dropdown__col ul {
+    grid-template-columns: 1fr;
+  }
+}

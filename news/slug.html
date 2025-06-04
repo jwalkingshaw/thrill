@@ -1,27 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://kgdqqpskaetkrirrxugd.supabase.co; connect-src 'self' https://kgdqqpskaetkrirrxugd.supabase.co; frame-src 'self' https://*.supabase.co;">
   <title>News Article | THRILLFIL</title>
-  <link rel="stylesheet" href="/css/styles.css" />
-  <link rel="stylesheet" href="/css/news.css" />
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/navigation.css" />
+  <link rel="stylesheet" href="/css/dropdown-styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <button class="hamburger" aria-label="Open navigation" aria-expanded="false">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
-    <nav class="nav-overlay" aria-hidden="true">
-      <ul>
-        <li><a href="/index.html">Home</a></li>
-        <li><a href="/news.html">News</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Include Navigation -->
+  <?php include_once '../includes/navigation.html'; ?>
   <div class="news-article-container">
     <div id="news-article"></div>
   </div>
