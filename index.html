@@ -10,8 +10,7 @@
   <link rel="stylesheet" href="/css/navigation.css" />
   <link rel="stylesheet" href="/css/dropdown-styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <!-- fullPage.js CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.24/dist/fullpage.min.css" />
+
 </head>
 <body>
   <!-- Navigation (static include for Netlify) -->
@@ -128,72 +127,76 @@
         <!-- Services FullPage Section -->
         <section id="services" class="services-section">
             <div class="services-container">
-                <div class="section-header">
-                    <h2>Our Solutions</h2>
-                    <p>Comprehensive commerce solutions to grow your brand in the ANZ market and beyond</p>
-                </div>
-                <div class="services-grid">
-                    <div class="service-card commerce">
-                        <div class="service-content">
-                            <h3>THRILL Commerce</h3>
-                        </div>
-                        <div class="service-media">
-                            <img src="images/commerce-thumbnail.jpg" alt="THRILL Commerce">
-                        </div>
-                        <div class="service-content">
-                            <p>End-to-end eCommerce solutions that drive growth and customer engagement. From marketplace integration to conversion optimization, we've got you covered.</p>
-                            <a href="#" class="service-link">
-                                Explore Commerce
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    <polyline points="12 5 19 12 12 19"></polyline>
-                                </svg>
-                            </a>
-                        </div>
+              <div class="section-header">
+                <h2>Our Solutions</h2>
+                <p>Comprehensive commerce solutions to grow your brand in the ANZ market and beyond</p>
+              </div>
+              <div class="services-visual-wrapper" style="position:relative;">
+                <!-- SVG Connections -->
+                <svg class="services-connections" width="100%" height="100%" viewBox="0 0 800 400" style="position:absolute; top:0; left:0; pointer-events:none; z-index:1;">
+                  <line id="line-commerce-fulfil" x1="220" y1="150" x2="400" y2="320" stroke="#E0E0E0" stroke-width="3" stroke-linecap="round" />
+                  <line id="line-fulfil-media" x1="400" y1="320" x2="580" y2="150" stroke="#E0E0E0" stroke-width="3" stroke-linecap="round" />
+                  <line id="line-media-commerce" x1="580" y1="150" x2="220" y2="150" stroke="#E0E0E0" stroke-width="3" stroke-linecap="round" />
+                </svg>
+                <div class="services-grid" style="position:relative; z-index:2;">
+                  <div class="service-card commerce" data-service="commerce" style="left:0; top:0;">
+                    <div class="service-content">
+                      <h3>THRILL Commerce</h3>
                     </div>
-                </div>
-                <div class="section service-section">
-                    <div class="service-card fulfil">
-                        <div class="service-content">
-                            <h3>THRILL Fulfil</h3>
-                        </div>
-                        <div class="service-media">
-                            <img src="images/fulfil-thumbnail.jpg" alt="THRILL Fulfil">
-                        </div>
-                        <div class="service-content">
-                            <p>Seamless order fulfillment and logistics solutions. Our network ensures fast, reliable delivery and exceptional customer experiences across ANZ.</p>
-                            <a href="#" class="service-link">
-                                Discover Fulfilment
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    <polyline points="12 5 19 12 12 19"></polyline>
-                                </svg>
-                            </a>
-                        </div>
+                    <div class="service-media">
+                      <img src="images/commerce-thumbnail.jpg" alt="THRILL Commerce">
                     </div>
-                </div>
-                <div class="section service-section">
-                    <div class="service-card create">
-                        <div class="service-content">
-                            <h3>THRILL Media</h3>
-                        </div>
-                        <div class="service-media">
-                            <img src="images/media-thumbnail.jpg" alt="THRILL Media">
-                        </div>
-                        <div class="service-content">
-                            <p>Creative solutions that tell your brand's story. From content creation to campaign management, we help you connect with your audience.</p>
-                            <a href="#" class="service-link">
-                                View Our Work
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    <polyline points="12 5 19 12 12 19"></polyline>
-                                </svg>
-                            </a>
-                        </div>
+                    <div class="service-content">
+                      <p>End-to-end eCommerce solutions that drive growth and customer engagement. From marketplace integration to conversion optimization, we've got you covered.</p>
+                      <a href="#" class="service-link">
+                        Explore Commerce
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      </a>
                     </div>
+                  </div>
+                  <div class="service-card fulfil" data-service="fulfil" style="position:absolute; left:50%; transform:translateX(-50%) translateY(170px);">
+                    <div class="service-content">
+                      <h3>THRILL Fulfil</h3>
+                    </div>
+                    <div class="service-media">
+                      <img src="images/fulfil-thumbnail.jpg" alt="THRILL Fulfil">
+                    </div>
+                    <div class="service-content">
+                      <p>Seamless order fulfillment and logistics solutions. Our network ensures fast, reliable delivery and exceptional customer experiences across ANZ.</p>
+                      <a href="#" class="service-link">
+                        Discover Fulfilment
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="service-card create" data-service="media" style="right:0; top:0;">
+                    <div class="service-content">
+                      <h3>THRILL Media</h3>
+                    </div>
+                    <div class="service-media">
+                      <img src="images/media-thumbnail.jpg" alt="THRILL Media">
+                    </div>
+                    <div class="service-content">
+                      <p>Creative solutions that tell your brand's story. From content creation to campaign management, we help you connect with your audience.</p>
+                      <a href="#" class="service-link">
+                        View Our Work
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-        </section>
+          </section>
 
         <!-- Case Studies Section -->
         <section id="case-studies" class="section">
@@ -406,7 +409,7 @@
 <script src="/js/navigation.js"></script>
 <script src="/js/main.js"></script>
 <script src="/js/services-animation.js"></script>
-<!-- fullPage.js -->
+
 
 </body>
 </html>
